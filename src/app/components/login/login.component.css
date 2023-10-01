@@ -12,6 +12,7 @@
   position: absolute;
   top: 50px;
   right: 50px;
+  font-family: cursive;
 }
 .login-container .desc {
   font-size: 34px;

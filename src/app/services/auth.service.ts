@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Users } from '../model/Users';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ import { Users } from '../model/Users';
 export class AuthService {
   private users: Users[] = [];
 
-  constructor() {
+  constructor(private router: Router) {
     this.users = [
       { username: 'giga', password: 'giga2001' },
       { username: 'mate', password: 'mate2001' },
@@ -26,5 +27,9 @@ export class AuthService {
     let res = this.findUser({ username: usrName, password: pass });
     let status = res ? 200 : 403;
     return status;
+  }
+
+  logout(): void {
+    this.router.navigate(['login']);
   }
 }
